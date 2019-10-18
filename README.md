@@ -12,6 +12,7 @@ Please find our requirements listed below:
 * Your app should support all the major browsers (Chrome, Firefox, Safari, IE11+).
 * If you decide to use other Flickr API feeds, please note that some endpoints require an API key. You can apply for your own [here](https://www.flickr.com/services/api/keys).
 * Where possible, only request images with a 'safe' tag to ensure the application remains suitable for all ages.
+* Code should have unit tests to cover the core functionality as a minimum.
 * Code should be pushed to a git repository.
 
 If you feel like you want to go the extra mile, here is a list of potential additions:
