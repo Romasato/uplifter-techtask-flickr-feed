@@ -21,4 +21,5 @@ If you feel like you want to go the extra mile, here is a list of potential addi
 * Allow the page to have an infinite scroll (loading in more images as you scroll).
 * A search functionality based on tags, or possibly the title of the photo.
 * How you can add in smooth animations that will add to the value of the application.
+* Adding typechecking using [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) or another similar technology
 * Alternatively if you can think of any other features that you feel would further enhance your app, then we'd love to see what you can come up with!
