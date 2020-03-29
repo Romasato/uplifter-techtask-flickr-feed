@@ -1,0 +1,5 @@
+const LOAD_PUBLIC_PHOTOS = 'LOAD_PUBLIC_PHOTOS';
+
+export {
+    LOAD_PUBLIC_PHOTOS
+};

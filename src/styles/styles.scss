@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import 'sass-globals.scss';
+@import './fonts.scss';
+@import './mixins/fluid-type.scss';
+
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 14px;
+$max_font: 16px;
+
+html {
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+
+    font-family: 'Roboto', sans-serif;
+
+    background-color: $color_bg;
+    color: gray;
+}
+
+#root {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+footer {
+    flex: 0 0;
+    font-size: 1em;
+    text-align: center;
+    padding: 20px;
+    color: #c19c44;
+}
