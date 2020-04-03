@@ -15,7 +15,7 @@
     "dev": "npm run clean:build && npm run server:dev & npm run spa:dev",
     "build:all": "npm run clean:build && npm run spa:prod && npm run server:build",
     "start": "npm run build:all && node ./dist-server/server.js",
-    "storybook": "start-storybook --ci -h localhost -p 9000 -s www -c .storybook ",
+    "storybook": "npm run clean:build && start-storybook --ci -h localhost -p 9000 -s dist -c .storybook ",
     "storybook:build": "build-storybook -s www -c .storybook",
     "storybook:serve": "serve -l 9000 ./storybook-static"
   },
