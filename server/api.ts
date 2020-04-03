@@ -50,11 +50,11 @@ function setupAPIRouter() {
             /* Transform the data before returning
             -------------------------------------------------------------*/
             const dataTransformed = flickrRes.data;
-            flickrRes.data.items = flickrRes.data.items.map((photo: TFlickrPhotoItem) => {
-                const [, email, alias] = photo.author.match(/^([^\s]+)\s\("([^"]+)"\)/i);
+            flickrRes.data.items = flickrRes.data.items.map((photo: TFlickrPhotoItemExtended) => {
+                const [,email, alias] = photo.author.match(/^([^\s]+)\s\("([^"]+)"\)/i);
                 photo.author_email = email;
                 photo.author_alias = alias;
-                return <TFlickrPhotoItemExtended>photo;
+                return photo;
             });
 
 
