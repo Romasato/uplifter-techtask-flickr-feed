@@ -1,5 +1,3 @@
-import 'reset-css';
-import 'normalize.css';
 import './styles/styles.scss';
 
 import React from 'react';
