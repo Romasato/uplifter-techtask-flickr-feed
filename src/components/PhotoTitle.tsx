@@ -14,7 +14,7 @@ class PhotoTitle extends React.Component<IProps, IState> {
         const {title, link} = this.props;
         return (
             <PhotoTitleStyle>
-                <a target='_blank' href={link}>{title}</a>
+                <PhotoLink target='_blank' href={link}>{title}</PhotoLink>
             </PhotoTitleStyle>
         );
     }
@@ -23,5 +23,9 @@ class PhotoTitle extends React.Component<IProps, IState> {
 const PhotoTitleStyle = styled.div`
   font-size: 1rem;
 `;
+
+const PhotoLink = styled.a`
+  word-break: break-word;
+`
 
 export {PhotoTitle};

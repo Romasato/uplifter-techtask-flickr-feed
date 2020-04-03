@@ -50,7 +50,7 @@ class App extends React.Component<TCProps, {}> {
                                     dateTaken={photo.date_taken}
                                     description={photo.description}
                                     publishDate={photo.published}
-                                    author={photo.author}
+                                    author={photo.author_alias}
                                     authorID={photo.author_id}
                                     tags={photo.tags}
                                 />

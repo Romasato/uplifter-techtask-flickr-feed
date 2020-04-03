@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {device} from '../styles/styled/device';
-
 import {PhotoTitle} from './PhotoTitle';
 import {AuthorName} from './AuthorName';
 import {PhotoDescription} from './PhotoDescription';
@@ -39,10 +37,9 @@ class PhotoWidget extends React.Component<IProps, IState> {
 
         return (
             <PhotoWidgetStyled className='photoWidget'>
-                <PhotoThumb title={title} url={thumb} />
+                <PhotoThumb title={title} url={thumb} linkUrl={link} />
                 <PhotoTitle title={title} link={link} />
-                {'by'}
-                <AuthorName name={author} />
+                <AuthorName name={author} authorID={authorID} />
                 {/*<PhotoDescription desc={''} />*/}
                 <TagsControl tags={tags.length ? tags.split(' ') : []} />
             </PhotoWidgetStyled>

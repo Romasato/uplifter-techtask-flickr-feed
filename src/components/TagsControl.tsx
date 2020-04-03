@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Popover from 'react-bootstrap/Popover';
+import {OverlayTrigger, Popover, Button} from 'react-bootstrap';
 import {Tag} from './Tag';
 
 interface IProps {
@@ -14,24 +14,58 @@ class TagsControl extends React.Component<IProps, {}> {
         const hasTags = tags.length > 0;
 
         return (
-            <TagsControlStyled>
-                {hasTags && (
-                    <TagsContainer>
-                        {tags.map(tag => <Tag key={tag} name={tag} />)}
-                    </TagsContainer>
-                )}
+            <TagsControlDiv>
                 {!hasTags && (
                     <div>No Tags</div>
                 )}
-            </TagsControlStyled>
+                {hasTags && (
+                    <OverlayTrigger
+                        trigger="click"
+                        placement={'bottom'}
+                        rootClose
+                        overlay={
+                            <Popover id={tags.join('')}>
+                                <Popover.Title as="h3">{`Tags of the Photo`}</Popover.Title>
+                                <Popover.Content>
+                                    <TagsContainer>
+                                        {tags.map(tag => <Tag key={tag} name={tag} />)}
+                                    </TagsContainer>
+                                </Popover.Content>
+                            </Popover>
+                        }
+                    >
+                        <ButtonTags disabled={!hasTags} variant="secondary">
+                            {hasTags ? (
+                                <>
+                                View tags
+                                <ButtonArrow>▽</ButtonArrow>
+                                </>
+                            ) : 'No tags'}
+                        </ButtonTags>
+                    </OverlayTrigger>
+                )}
+            </TagsControlDiv>
         );
     }
 }
 
-const TagsControlStyled = styled.div`
+const ButtonArrow = styled.span`
+  opacity: 0.5;
+  margin-left: 0.5em;
+`;
+
+const TagsControlDiv = styled.div`
   display: flex;
   flex-flow: row wrap;
   margin-top: 10px;
+  align-self: center;
+  margin-bottom: 20px;
+`;
+
+const ButtonTags = styled(Button)`
+  border: none;
+  background: #dddddd;
+  color: #848282;
 `;
 
 const TagsContainer = styled.ul`
