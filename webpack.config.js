@@ -77,7 +77,7 @@ const webpackConfig = {
                         options: {
                             implementation: require('sass'),
                             sassOptions: {
-                                //outputStyle: 'compressed',
+                                outputStyle: 'compressed',
                                 sourceMap: true,
                                 sourceMapContents: false
                             }
