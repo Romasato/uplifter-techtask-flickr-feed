@@ -5,6 +5,8 @@ import styled, {keyframes} from 'styled-components';
 import {device} from '../styles/styled/device';
 import {PhotoWidget} from './PhotoWidget';
 import {Logo} from './Logo';
+import {Loader} from './Loader';
+
 import {loadPublicPhotos} from '../stores/actions';
 
 // Redux Store Hookup
@@ -36,9 +38,7 @@ class App extends React.Component<TCProps, {}> {
                 <Logo />
                 <ContentDiv className='content'>
                     {isLoading ? (
-                        <Loader className='loader'>
-                            Photos loading...
-                        </Loader>
+                        <Loader />
                     ) : (
                         <PhotosList className='photoList'>
                             {publicPhotos?.items?.map((photo: any) => {
@@ -83,24 +83,6 @@ const ContentDiv = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   width: 100%;
-`;
-
-const animLoader = keyframes`
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0.2
-  }
-`;
-
-const Loader = styled.div`
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: ${animLoader} 1s linear infinite alternate;
 `;
 
 const PhotosList = styled.div`

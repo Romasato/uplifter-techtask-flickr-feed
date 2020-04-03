@@ -96,10 +96,15 @@ const webpackConfig = {
                 ]
             },
             {
-                test: /\.(png|svg)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 use: [
                     {
-                        loader: 'url-loader'
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/',
+                            publicPath: './images'
+                        }
                     }
                 ]
             },

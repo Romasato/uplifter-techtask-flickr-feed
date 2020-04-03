@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {device} from '../styles/styled/device';
 import FlickrLogo from '../assets/images/flickr-logo.svg';
 
 interface IProps {
