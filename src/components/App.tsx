@@ -34,33 +34,36 @@ class App extends React.Component<TCProps, {}> {
         return (
             <AppContainer className='app-container'>
                 <Logo />
-                {isLoading && (
-                    <Loader className='loader'>
-                        Photos loading...
-                    </Loader>
-                )}
-                <PhotosList className='photoList'>
-                    {publicPhotos?.items?.map((photo: any) => {
-                        return (
-                            <PhotoWrapper key={photo.link}>
-                                <PhotoWidget
-                                    title={photo.title}
-                                    link={photo.link}
-                                    thumb={photo.media.m}
-                                    dateTaken={photo.date_taken}
-                                    description={photo.description}
-                                    publishDate={photo.published}
-                                    author={photo.author_alias}
-                                    authorID={photo.author_id}
-                                    tags={photo.tags}
-                                />
-                            </PhotoWrapper>
-                        )
-                    })}
-                    {!isLoading && !publicPhotos && (
-                        <div>No photos loaded.</div>
+                <ContentDiv className='content'>
+                    {isLoading ? (
+                        <Loader className='loader'>
+                            Photos loading...
+                        </Loader>
+                    ) : (
+                        <PhotosList className='photoList'>
+                            {publicPhotos?.items?.map((photo: any) => {
+                                return (
+                                    <PhotoWrapper key={photo.link}>
+                                        <PhotoWidget
+                                            title={photo.title}
+                                            link={photo.link}
+                                            thumb={photo.media.m}
+                                            dateTaken={photo.date_taken}
+                                            description={photo.description}
+                                            publishDate={photo.published}
+                                            author={photo.author_alias}
+                                            authorID={photo.author_id}
+                                            tags={photo.tags}
+                                        />
+                                    </PhotoWrapper>
+                                )
+                            })}
+                            {!isLoading && publicPhotos?.items?.length === 0 && (
+                                <div>No photos loaded.</div>
+                            )}
+                        </PhotosList>
                     )}
-                </PhotosList>
+                </ContentDiv>
                 <footer>Romas Kriauciukas &copy; 2020</footer>
             </AppContainer>
         );
@@ -71,8 +74,15 @@ const AppContainer = styled.div`
   display: flex; 
   flex-flow: column nowrap;
   flex: 1 1 auto;
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+`;
+
+const ContentDiv = styled.div`
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
 `;
 
 const animLoader = keyframes`
@@ -89,10 +99,12 @@ const Loader = styled.div`
   flex: 1 1 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   animation: ${animLoader} 1s linear infinite alternate;
 `;
 
 const PhotosList = styled.div`
+  flex: 1 0 auto;
   display: grid;
   grid-template-columns: 1fr;   
   background: #e6e6e6;
@@ -103,6 +115,12 @@ const PhotosList = styled.div`
   
   @media screen and ${device.large} {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;   
+    max-width: 1000px;
+  }
+  
+  @media screen and ${device.huge} {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;   
+    max-width: 1300px;
   }
 `;
 
