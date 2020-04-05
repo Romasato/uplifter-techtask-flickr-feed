@@ -4,9 +4,17 @@
     "module": "commonjs",
     "outDir": "./dist-server",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "include": [
-    "server/**/*"
+    "server/**/*",
+    "config/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

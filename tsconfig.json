@@ -9,6 +9,7 @@
     "jsx": "react",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "rootDirs": [
       "./src",
       "./stories"
