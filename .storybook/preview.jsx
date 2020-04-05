@@ -2,9 +2,6 @@ import React from 'react';
 import {addDecorator, addParameters} from '@storybook/react';
 import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
 
-//import {withInfo} from '@storybook/addon-info';
-//addDecorator(withInfo);
-
 import {StoryComponentWrapper} from './StoryComponentWrapper';
 
 addParameters({
